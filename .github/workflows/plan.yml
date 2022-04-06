@@ -1,5 +1,5 @@
 name: ci
-on: [push]
+#on: [push]
 #https://adamtheautomator.com/github-actions-environment-variables/
 #https://stackoverflow.com/questions/58643905/how-aws-credentials-works-at-github-actions
 env:
