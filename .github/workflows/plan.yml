@@ -18,5 +18,5 @@ jobs:
           TF_VPC_WS_VAR: ${TF_VPC_WS_DIR}/vpc.tfvars
           TF_PLAN: ${TF_VPC_WS_DIR}-vpc.tfplan
           TF_JSON: ${TF_VPC_WS_DIR}-vpc.json
-      - run: cd ${{env.TF_VPC_ROOT_DIR}} && ls -la && pwd
+      - run: cd $TF_VPC_ROOT_DIR && ls -la && pwd
       
