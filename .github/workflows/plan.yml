@@ -1,5 +1,5 @@
 name: ci
-#on: [push]
+on: [push]
 #https://adamtheautomator.com/github-actions-environment-variables/
 #https://stackoverflow.com/questions/58643905/how-aws-credentials-works-at-github-actions
 env:
@@ -21,8 +21,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
+      - name: execute TERRAFORM PLAN
+        if: $TF_OPS == 'plan'
         
-      - run: |
+        run: |
           cd $TF_VPC_ROOT_DIR && ls -la && pwd
           terraform init -backend-config="bucket=statebucket-trivut-marketplace" -lock=false
           terraform validate -json
