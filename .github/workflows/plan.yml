@@ -6,7 +6,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
-        env:
+        env:    #https://stackoverflow.com/questions/58643905/how-aws-credentials-works-at-github-actions
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           WORKSPACE_NAME: ecs-iteration-1
@@ -18,5 +18,5 @@ jobs:
           TF_VPC_WS_VAR: ${TF_VPC_WS_DIR}/vpc.tfvars
           TF_PLAN: ${TF_VPC_WS_DIR}-vpc.tfplan
           TF_JSON: ${TF_VPC_WS_DIR}-vpc.json
-      - run: cd ${TF_VPC_ROOT_DIR} && ls -la && pwd
+      - run: cd ${{env.TF_VPC_ROOT_DIR}} && ls -la && pwd
       
