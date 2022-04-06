@@ -15,11 +15,14 @@ env:    #https://stackoverflow.com/questions/58643905/how-aws-credentials-works-
   TF_JSON: ${TF_VPC_WS_DIR}-vpc.json
           
 jobs:
-  check-bats-version:
+  terraform-plan:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         
       - run: cd $TF_VPC_ROOT_DIR && ls -la && pwd
+      - run: terraform init -backend-config="bucket=statebucket-trivut-marketplace" -lock=false
+      - run: terraform validate -json
+      - run: terraform plan -lock=false -var-file=workspace/$WORKSPACE_NAME/vpc.tfvars
       
