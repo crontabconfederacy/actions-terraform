@@ -1,0 +1,15 @@
+# Terraform
+.terraform
+*.tfstate
+*.tfstate.*
+*.tfplan
+
+# Env Storage Paths
+service-test/ems/*-storage
+service-test/logger/splunk/
+
+# Mac .DS_store
+.DS_store
+
+# General Files
+data/*
