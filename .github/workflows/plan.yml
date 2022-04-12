@@ -8,7 +8,7 @@ env:
   WORKSPACE_NAME: ecs-iteration-1
   # Terraform Default Operation mode
   TF_OPS: plan
-  # TF VPC Paths##
+  # TF VPC Paths#
   TF_VPC_ROOT_DIR: infra/aws_vpc
   TF_VPC_WS_DIR: ${TF_VPC_ROOT_DIR}/workspace/${WORKSPACE_NAME}
   TF_VPC_WS_VAR: ${TF_VPC_WS_DIR}/vpc.tfvars
