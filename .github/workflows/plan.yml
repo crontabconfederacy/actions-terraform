@@ -1,7 +1,8 @@
 name: ci
 on:
   push:
-    branches: [ main ]
+    branches: 
+      - main
 
 #https://adamtheautomator.com/github-actions-environment-variables/
 #https://stackoverflow.com/questions/58643905/how-aws-credentials-works-at-github-actions
